@@ -1,0 +1,125 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.calculator {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    background-color: rgb(5, 46, 54);
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
+}
+
+.display {
+    height: 100px;
+    background-color: rgb(183, 233, 217);
+    border-radius: 2px;
+    box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0.5);
+    word-break: break-all;
+}
+
+#display__small {
+    font-size: 30px;
+    color: rgb(93, 93, 96);
+    padding: 5px 0 0 10px;
+    text-align: left;
+}
+
+#display__large {
+    font-size: 55px;
+    color: rgb(42, 42, 44);
+    padding-right: 10px;
+    text-align: right;
+}
+
+.button-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding-top: 20px;
+    grid-auto-rows: 45px;
+}
+
+.btn {
+    font-size: 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(44, 198, 149);
+    box-shadow: 1px 1px 5px 0.4px rgba(255, 255, 255, 0.3);
+}
+
+.btn:hover {
+    background-color: rgb(46, 216, 162);
+    cursor: pointer;
+}
+
+.btn:active {
+    background-color: rgb(44, 148, 115);
+    box-shadow: 1px 1px 5px 0.4px rgba(164, 162, 162, 0.3);
+}
+
+.button__fun{
+    background-color: rgb(192, 161, 82);
+    color: white;
+}
+.button__fun:hover{
+    background-color: rgb(216, 180, 86);
+    color: white;
+}
+
+.button__fun:active{
+    background-color: rgb(148, 125, 65);
+    color: white;
+}
+
+.button__ac{
+    background-color: rgb(255, 107, 107);
+    color: white;
+}
+
+.button__ac:hover{
+    background-color: rgb(255, 130, 130);
+    color: white;
+}
+
+.button__ac:active{
+    background-color: rgb(224, 78, 78);
+    color: white;
+}
+
+.button__del{
+    background-color: rgb(247, 149, 58);
+    color: white;
+}
+.button__del:hover{
+    background-color: rgb(249, 163, 83);
+    color: white;
+}
+.button__del:active{
+    background-color: rgb(242, 134, 33);
+    color: white;
+}
+
+.button__equal{
+    background-color: rgb(76, 175, 80);
+    color: white;
+}   
+.button__eq{
+    grid-column: span 2;
+}
+.button__add{
+    grid-row: span 2;
+
+}
