@@ -1,14 +1,3 @@
-const display = document.getElementById("display");
-const buttons = document.querySelectorAll(".btn");
-let expression = "";
-function updateDisplay() {
-    display.textContent = expression || "0";
-}
-function clearAll() {
-    expression = "";
-    updateDisplay();
-}
-
 function calculate(expr) {
     let numbers = [];
     let operators = [];
@@ -46,30 +35,3 @@ function calculate(expr) {
     }
     return result;
 }
-// button events
-buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        let value = btn.textContent;
-        // CLEAR
-        if (value === "C") {
-            clearAll();
-            return;
-        }
-        // BACKSPACE
-         
-        // EQUAL
-        if (value === "=") {
-            try {
-                expression = calculate(expression).toString();
-                updateDisplay();
-            } catch {
-                display.textContent = "Error";
-                expression = "";
-            }
-            return;
-        }
-        // normal input
-        expression += value;
-        updateDisplay();
-    });
-});
