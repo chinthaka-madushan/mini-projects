@@ -16,5 +16,5 @@ buttonBox.addEventListener('click', (clickInfo)=> {
 });
 
 clearDisplay = () =>{
-
+    
 }
