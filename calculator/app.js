@@ -8,10 +8,13 @@ buttonBox.addEventListener('click', (clickInfo)=> {
     }
     let value = clickInfo.target.textContent;
     console.log(value);
+    displayLarge.textContent = value;
     
     if(value === 'AC'){
-        displaySmall.textContent = "I love you chuty manika";
-        displayLarge.textContent = "♥♥♥♥♥♥♥♥♥♥♥";
-        console.log(displaySmall.value);
+        clearDisplay();
     }
 });
+
+clearDisplay = () =>{
+
+}

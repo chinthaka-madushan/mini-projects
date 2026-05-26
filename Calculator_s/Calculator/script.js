@@ -56,11 +56,7 @@ buttons.forEach(btn => {
             return;
         }
         // BACKSPACE
-        if (value === "X") {
-            expression = expression.slice(0, -1);
-            updateDisplay();
-            return;
-        }
+         
         // EQUAL
         if (value === "=") {
             try {

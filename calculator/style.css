@@ -5,7 +5,7 @@ body {
     min-height: 100vh;
 }
 
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -16,10 +16,10 @@ body {
     max-width: 400px;
     width: 100%;
     height: auto;
-    padding: 15px;
+    padding: 25px;
     background-color: rgb(5, 46, 54);
     border-radius: 10px;
-    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px  rgba(0, 0, 0, 1);
 }
 
 .display {
@@ -46,7 +46,7 @@ body {
 
 .button-box {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr) ;
     gap: 10px;
     padding-top: 20px;
     grid-auto-rows: 45px;
@@ -76,12 +76,10 @@ body {
 }
 .button__fun:hover{
     background-color: rgb(216, 180, 86);
-    color: white;
 }
 
 .button__fun:active{
     background-color: rgb(148, 125, 65);
-    color: white;
 }
 
 .button__ac{
@@ -91,12 +89,10 @@ body {
 
 .button__ac:hover{
     background-color: rgb(255, 130, 130);
-    color: white;
 }
 
 .button__ac:active{
     background-color: rgb(224, 78, 78);
-    color: white;
 }
 
 .button__del{
@@ -105,11 +101,9 @@ body {
 }
 .button__del:hover{
     background-color: rgb(249, 163, 83);
-    color: white;
 }
 .button__del:active{
     background-color: rgb(242, 134, 33);
-    color: white;
 }
 
 .button__equal{
