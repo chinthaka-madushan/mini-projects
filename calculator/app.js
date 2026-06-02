@@ -15,8 +15,7 @@ buttonBox.addEventListener('click', (clickInfo) => {
         case 'DEL': deleteFunction(); break;
         case '=':
             try {
-                largeValue = calculate(expression);
-                smallValue = expression;
+                calculate(expression);
                 updateDisplay();
             } catch (e) {
                 displayLarge.textContent = 'Error';
@@ -24,7 +23,12 @@ buttonBox.addEventListener('click', (clickInfo) => {
             }
             break;
         default:
-            //todo
+            if ("/X-+".includes(value) && "/X-+".includes(expression[expression.length - 1])) {
+                expression = expression.slice(0, -1);
+            }
+            expression += value;
+            largeValue = expression;
+            updateDisplay();
     }
 });
 
@@ -36,27 +40,56 @@ function updateDisplay() {
 function clearDisplay() {
     smallValue = '';
     largeValue = '0';
+    expression = '';
     updateDisplay();
 }
 
-function calculate(expression) {
+function calculate(expr) {
     let numbers = [];
     let operators = [];
     let num = '';
-    for (let i = 0; i < expression.length; i++) {
-        let char = expression[i];
-        if ("+-*/".includes(char)) {
-            if (num === '') {
-                if (char === '-') {
-                    //todo
-                } else {
-                    //todo
-                }
-            } else {
-                //todo
-            }
-        } else {
+    for (let i = 0; i < expr.length; i++) {
+        let char = expr[i];
+        if ("+-X/".includes(char) && num !== '' && i != expr.length - 1) {
+            operators.push(char);
+            numbers.push(parseFloat(num));
+            num = '';
+        } else if ((char === '-' && i == 0) || !"+-X/".includes(char)) {
             num += char;
         }
     }
+    numbers.push(parseFloat(num));
+
+    smallValue = numbers[0];
+    for (let i = 0; i < operators.length; i++) {
+        smallValue += operators[i];
+        smallValue += numbers[i + 1];
+    }
+
+    for (let i = 0; i < operators.length; i++) {
+        if (operators[i] === 'X' || operators[i] === '/') {
+            if (operators[i] === 'X') {
+                numbers[i] = numbers[i] * numbers[i + 1];
+            } else {
+                numbers[i] = numbers[i] / numbers[i + 1];
+            }
+            numbers.splice(i + 1, 1);
+            operators.splice(i, 1);
+            i--;
+        }
+    }
+
+    for (let i = 0; i < operators.length; i++) {
+        if (operators[i] === '+') {
+            numbers[i] = numbers[i] + numbers[i + 1];
+        } else {
+            numbers[i] = numbers[i] - numbers[i + 1];
+        }
+        numbers.splice(i + 1, 1);
+        operators.splice(i, 1);
+        i--;
+    }
+
+    expression = numbers[0];
+    largeValue = expression;
 }
