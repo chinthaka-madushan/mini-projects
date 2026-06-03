@@ -44,6 +44,13 @@ function clearDisplay() {
     updateDisplay();
 }
 
+function deleteFunction(){
+    expression = expression.slice(0, -1);
+    largeValue = expression;
+    smallValue = '';
+    updateDisplay();
+}
+
 function calculate(expr) {
     let numbers = [];
     let operators = [];
@@ -90,6 +97,6 @@ function calculate(expr) {
         i--;
     }
 
-    expression = numbers[0];
+    expression = numbers[0].toString();
     largeValue = expression;
 }
